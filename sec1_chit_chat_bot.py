@@ -8,8 +8,12 @@ def greeting():
 
 
 def get_responses():
-    questions = ["what's your name?", "what do you speak?", "what's your favorite color?"]
-    answers = ["Chit Chat!", "English", "green"]
+    questions = ["hello", 'hi', "what's your name?",
+                 "what do you speak?", "what languages do you speak?",
+                 "how do you say hello in klingon?", "what's your favorite color?"]
+    answers = ["Hi!", "Hi!", "Chit Chat!",
+               "English and some Klingon", "English and some Klingon",
+               'nuqneH', "green"]
 
     return dict(zip(questions, answers))
 
