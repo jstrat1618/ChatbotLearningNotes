@@ -22,9 +22,9 @@ def ask_user():
     user_input = input("What would you like to say? [Q]uit ")
     return user_input
 
-def clean_user_input(user_inut):
+def clean_user_input(user_input):
 
-    text = user_inut.strip()
+    text = user_input.strip()
 
     text = text.lower()
 

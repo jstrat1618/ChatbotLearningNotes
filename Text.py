@@ -1,3 +1,4 @@
+import string
 class MyText:
     def __init__(self, text, has_been_replaced=None):
         self.text = text
@@ -34,6 +35,19 @@ class MyText:
 
 
         return MyText(new_text.rstrip(), has_been_replaced=self.has_been_replaced)
+
+
+    def clean_text(self, has_been_replaced=None):
+        text = self.text
+
+        text = text.strip()
+
+        text = text.lower()
+
+        #Remove punctuation
+        text = text.translate(str.maketrans('', '', string.punctuation))
+
+        return MyText(text, has_been_replaced)
 
 
 

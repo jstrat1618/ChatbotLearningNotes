@@ -1,6 +1,7 @@
 import re
-from sec1_chit_chat_bot import ask_user, clean_user_input
+from sec1_chit_chat_bot import ask_user
 from Text import MyText
+from DefinedResponses import DefinedResponses
 
 def greeting():
     print("---------------------------------------")
@@ -29,6 +30,8 @@ def response_match(text):
 
             out_text = replace + " " + text_swap.text +"!!!"
 
+            break
+
     return out_text
 
 
@@ -38,17 +41,25 @@ def main():
 
     user_input = ask_user()
 
+    loaded_responses = DefinedResponses()
+
     while user_input.upper() != "Q":
 
 
-        cleaned_input = clean_user_input(user_input)
+        cleaned_input = MyText(user_input).clean_text()
 
-        match_text = response_match(cleaned_input)
+        predefined_response = loaded_responses.response(cleaned_input.text)
 
-        #Using Python's "truthiness" for an empty string here
-        response = match_text if match_text else "Sorry, I'm not familiar with that"
+        match_text = response_match(cleaned_input.text)
 
-        print(response)
+        if predefined_response:
+            print(predefined_response)
+
+        elif match_text:
+            print(match_text)
+
+        else:
+            print("Sorry, I'm not familiar with that")
 
         user_input = ask_user()
 

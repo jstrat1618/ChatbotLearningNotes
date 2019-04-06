@@ -7,7 +7,7 @@ def greeting():
 def ask_user():
     user_input = input("What would you like to say? [Q]uit ")
 
-    return user_input
+    message =  user_input
 
 def echo_respond(msg):
     bot_output = 'ECHO BOT: I hear you. You said "{}"'.format(msg)
